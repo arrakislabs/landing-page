@@ -37,6 +37,7 @@
   a.hero-cta:hover { transform: translateY(-2px); }
   a.thesis-link:hover { color: #EDE6DA; }
   a.contact-link:hover { border-bottom-color: #C8A46B; }
+  a.venture-card:hover { border-color: rgba(200,164,107,0.6); }
 
   .nav-header, .hero-section, .credentials-inner, .thesis-section, .stealth-section, .footer-inner {
     padding-left: 40px;
@@ -68,11 +69,11 @@
       padding-left: 24px;
       padding-right: 24px;
     }
-    .hero-section { padding-top: 40px; padding-bottom: 72px; }
-    .thesis-section { padding-top: 72px; padding-bottom: 72px; }
-    .stealth-section { padding-bottom: 72px; }
+    .hero-section { padding-top: 40px; padding-bottom: 56px; }
+    .thesis-section { padding-top: 56px; padding-bottom: 56px; }
+    .stealth-section { padding-bottom: 56px; }
     .stealth-box { padding: 40px 24px !important; }
-    .footer-inner { padding-top: 72px !important; gap: 48px !important; }
+    .footer-inner { padding-top: 56px !important; gap: 40px !important; }
     .credentials-inner {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -81,15 +82,18 @@
     }
     .brand-logos { justify-content: flex-start; gap: 24px; }
     .thesis-grid { grid-template-columns: 1fr; }
+    .ventures-grid { grid-template-columns: 1fr !important; }
+    .venture-card { padding: 40px 24px !important; }
     .hero-cta-row { flex-wrap: wrap; }
+    .glow-mid, .glow-footer { display: none; }
   }
 </style>
 </head>
 <body>
-<div style="min-height: 100vh; background: #0E0C09; color: #EDE6DA; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+<div style="position: relative; min-height: 100vh; background: #0E0C09; color: #EDE6DA; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
 
-  <!-- ambient glow -->
-  <div style="position: fixed; top: -30vh; left: 50%; margin-left: -40vw; width: 80vw; height: 60vh; background: radial-gradient(ellipse at center, rgba(200,164,107,0.10), transparent 65%); pointer-events: none;"></div>
+  <!-- ambient glow: hero -->
+  <div style="position: absolute; top: -30vh; left: 50%; margin-left: -40vw; width: 80vw; height: 60vh; background: radial-gradient(ellipse at center, rgba(200,164,107,0.10), transparent 65%); pointer-events: none;"></div>
 
   <!-- nav -->
   <header class="nav-header" style="position: relative; display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding-top: 32px;">
@@ -101,7 +105,7 @@
   </header>
 
   <!-- hero -->
-  <section class="hero-section" style="position: relative; max-width: 1120px; margin: 0 auto; padding-top: 64px; padding-bottom: 120px;">
+  <section class="hero-section" style="position: relative; max-width: 1120px; margin: 0 auto; padding-top: 40px; padding-bottom: 96px;">
     <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 28px; animation: fadeUp 0.7s ease both;">A VENTURE LAB</p>
     <h1 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(40px, 7.2vw, 92px); line-height: 1.04; letter-spacing: -0.015em; margin: 0; max-width: 15ch; text-wrap: balance; animation: fadeUp 0.7s ease 0.08s both;">We build products the way great products deserve to be built.</h1>
     <p style="font-size: 19px; line-height: 1.65; color: rgba(237,230,218,0.62); max-width: 52ch; margin: 36px 0 0; animation: fadeUp 0.7s ease 0.16s both;">Arrakis Labs is the parent company for a portfolio of ambitious software ventures — conceived, engineered, and scaled in-house until they're ready to stand on their own.</p>
@@ -113,7 +117,7 @@
 
   <!-- credentials strip -->
   <section style="border-top: 1px solid rgba(237,230,218,0.10); border-bottom: 1px solid rgba(237,230,218,0.10); background: rgba(237,230,218,0.02);">
-    <div class="credentials-inner" style="max-width: 1120px; margin: 0 auto; padding-top: 40px; padding-bottom: 40px;">
+    <div class="credentials-inner" style="max-width: 1120px; margin: 0 auto; padding-top: 48px; padding-bottom: 48px;">
       <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(237,230,218,0.55);">An engineering-founder team with a decade of collective experience shipping at some of the world's most successful companies.</p>
       <div class="brand-logos">
         <span style="font-family: 'Instrument Serif', serif; font-size: 24px; color: rgba(237,230,218,0.8);">Slack</span>
@@ -124,8 +128,9 @@
   </section>
 
   <!-- thesis -->
-  <section id="thesis" class="thesis-section" style="max-width: 1120px; margin: 0 auto; padding-top: 120px; padding-bottom: 120px;">
-    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 48px;">THE MODEL</p>
+  <section id="thesis" class="thesis-section" style="position: relative; max-width: 1120px; margin: 0 auto; padding-top: 96px; padding-bottom: 96px;">
+    <div class="glow-mid" style="position: absolute; z-index: -1; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 140%; background: radial-gradient(ellipse at center, rgba(200,164,107,0.10), transparent 70%); pointer-events: none;"></div>
+    <p style="position: relative; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 48px;">THE MODEL</p>
     <div class="thesis-grid">
       <div style="background: #0E0C09; padding: 40px 32px;">
         <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4);">01</span>
@@ -145,18 +150,27 @@
     </div>
   </section>
 
-  <!-- stealth -->
-  <section class="stealth-section" style="max-width: 1120px; margin: 0 auto; padding-bottom: 120px;">
-    <div class="stealth-box" style="border: 1px dashed rgba(200,164,107,0.35); padding: 72px 40px; text-align: center;">
-      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 20px;">CURRENT VENTURES</p>
-      <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); margin: 0; letter-spacing: -0.01em;">Building in stealth.</h2>
-      <p style="font-size: 16px; line-height: 1.6; color: rgba(237,230,218,0.55); max-width: 42ch; margin: 18px auto 0;">Our first ventures are in active development. If you want to hear about them first, reach out.</p>
+  <!-- ventures -->
+  <section class="stealth-section" style="max-width: 1120px; margin: 0 auto; padding-bottom: 96px;">
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 32px;">CURRENT VENTURES</p>
+    <div class="ventures-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <a href="/flowlens/" class="venture-card" style="display: block; border: 1px solid rgba(237,230,218,0.14); padding: 48px 40px; text-decoration: none; color: #EDE6DA;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(237,230,218,0.4); margin: 0 0 16px;">FOR JIRA</p>
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 34px; margin: 0 0 12px;">FlowLens<span style="color: #C8A46B;">.</span></h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(237,230,218,0.55);">Time-in-status analytics on your Jira dashboard — find bottlenecks, measure in business hours, keep your data inside Atlassian.</p>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #C8A46B; margin: 24px 0 0;">EXPLORE →</p>
+      </a>
+      <div style="border: 1px dashed rgba(200,164,107,0.35); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(24px, 3vw, 32px); margin: 0; letter-spacing: -0.01em;">More in the lab.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: rgba(237,230,218,0.55); margin: 14px 0 0;">The next ventures are in active development. If you want to hear about them first, reach out.</p>
+      </div>
     </div>
   </section>
 
   <!-- contact / footer -->
-  <section style="border-top: 1px solid rgba(237,230,218,0.10);">
-    <div class="footer-inner" style="max-width: 1120px; margin: 0 auto; padding-top: 110px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 72px;">
+  <section style="position: relative; border-top: 1px solid rgba(237,230,218,0.10); overflow: hidden;">
+    <div class="glow-footer" style="position: absolute; z-index: -1; top: 30%; left: 50%; transform: translate(-50%, -50%); width: 70vw; height: 160%; background: radial-gradient(ellipse at center, rgba(200,164,107,0.12), transparent 70%); pointer-events: none;"></div>
+    <div class="footer-inner" style="max-width: 1120px; margin: 0 auto; padding-top: 96px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 64px;">
       <div>
         <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(32px, 5vw, 60px); margin: 0 0 24px; letter-spacing: -0.01em;">The spice must flow<span style="color: #C8A46B;">.</span></h2>
         <a href="mailto:hello@arrakislabsinc.com" class="contact-link" style="font-size: 19px; color: #C8A46B; text-decoration: none; border-bottom: 1px solid rgba(200,164,107,0.4); padding-bottom: 3px;">hello@arrakislabsinc.com</a>
