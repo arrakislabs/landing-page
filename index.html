@@ -37,6 +37,7 @@
   a.hero-cta:hover { transform: translateY(-2px); }
   a.thesis-link:hover { color: #EDE6DA; }
   a.contact-link:hover { border-bottom-color: #C8A46B; }
+  a.venture-card:hover { border-color: rgba(200,164,107,0.6); }
 
   .nav-header, .hero-section, .credentials-inner, .thesis-section, .stealth-section, .footer-inner {
     padding-left: 40px;
@@ -81,6 +82,8 @@
     }
     .brand-logos { justify-content: flex-start; gap: 24px; }
     .thesis-grid { grid-template-columns: 1fr; }
+    .ventures-grid { grid-template-columns: 1fr !important; }
+    .venture-card { padding: 40px 24px !important; }
     .hero-cta-row { flex-wrap: wrap; }
     .glow-mid, .glow-footer { display: none; }
   }
@@ -147,12 +150,20 @@
     </div>
   </section>
 
-  <!-- stealth -->
+  <!-- ventures -->
   <section class="stealth-section" style="max-width: 1120px; margin: 0 auto; padding-bottom: 96px;">
-    <div class="stealth-box" style="border: 1px dashed rgba(200,164,107,0.35); padding: 72px 40px; text-align: center;">
-      <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 20px;">CURRENT VENTURES</p>
-      <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); margin: 0; letter-spacing: -0.01em;">Building in stealth.</h2>
-      <p style="font-size: 16px; line-height: 1.6; color: rgba(237,230,218,0.55); max-width: 42ch; margin: 18px auto 0;">Our first ventures are in active development. If you want to hear about them first, reach out.</p>
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 32px;">CURRENT VENTURES</p>
+    <div class="ventures-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <a href="/flowlens/" class="venture-card" style="display: block; border: 1px solid rgba(237,230,218,0.14); padding: 48px 40px; text-decoration: none; color: #EDE6DA;">
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: rgba(237,230,218,0.4); margin: 0 0 16px;">FOR JIRA</p>
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 34px; margin: 0 0 12px;">FlowLens<span style="color: #C8A46B;">.</span></h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(237,230,218,0.55);">Time-in-status analytics on your Jira dashboard — find bottlenecks, measure in business hours, keep your data inside Atlassian.</p>
+        <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #C8A46B; margin: 24px 0 0;">EXPLORE →</p>
+      </a>
+      <div style="border: 1px dashed rgba(200,164,107,0.35); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center;">
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(24px, 3vw, 32px); margin: 0; letter-spacing: -0.01em;">More in the lab.</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: rgba(237,230,218,0.55); margin: 14px 0 0;">The next ventures are in active development. If you want to hear about them first, reach out.</p>
+      </div>
     </div>
   </section>
 

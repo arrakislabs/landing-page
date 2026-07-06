@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowLens — Time in Status &amp; Cycle Time for Jira | Arrakis Labs</title>
+<meta name="description" content="FlowLens is a Jira dashboard gadget that shows how long issues sit in each status — averages, per-issue breakdowns, and cycle-time trends. Business-hours accurate. Private by design.">
+<meta name="theme-color" content="#0E0C09">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Arrakis Labs">
+<meta property="og:title" content="FlowLens — Time in Status &amp; Cycle Time for Jira">
+<meta property="og:description" content="See where the time goes. Business-hours accurate time-in-status analytics for Jira. Your data never leaves Atlassian.">
+<meta property="og:url" content="https://arrakislabsinc.com/flowlens/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0E0C09; }
+  * { box-sizing: border-box; }
+  ::selection { background: #C8A46B; color: #0E0C09; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  a { transition: all 0.2s ease; }
+  a.nav-cta:hover { border-color: #C8A46B; color: #C8A46B; }
+  a.hero-cta:hover { transform: translateY(-2px); }
+  a.quiet-link:hover { color: #EDE6DA; }
+  a.contact-link:hover { border-bottom-color: #C8A46B; }
+
+  .nav-header, .hero-section, .feature-section, .footer-inner { padding-left: 40px; padding-right: 40px; }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(237,230,218,0.10);
+    border: 1px solid rgba(237,230,218,0.10);
+  }
+  @media (max-width: 700px) {
+    .nav-header, .hero-section, .feature-section, .footer-inner { padding-left: 24px; padding-right: 24px; }
+    .hero-section { padding-top: 40px; padding-bottom: 56px; }
+    .feature-section { padding-top: 56px; padding-bottom: 56px; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .hero-cta-row { flex-wrap: wrap; }
+    .glow-hero { display: none; }
+  }
+</style>
+</head>
+<body>
+<div style="position: relative; min-height: 100vh; background: #0E0C09; color: #EDE6DA; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <div class="glow-hero" style="position: absolute; top: -30vh; left: 50%; margin-left: -40vw; width: 80vw; height: 60vh; background: radial-gradient(ellipse at center, rgba(200,164,107,0.10), transparent 65%); pointer-events: none;"></div>
+
+  <header class="nav-header" style="position: relative; display: flex; align-items: center; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding-top: 32px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: #EDE6DA;">
+      <span style="font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: 0.01em;">Arrakis Labs</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C8A46B; letter-spacing: 0.14em;">INC</span>
+    </a>
+    <a href="/flowlens/docs/" class="nav-cta" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #EDE6DA; text-decoration: none; border: 1px solid rgba(237,230,218,0.22); padding: 10px 18px; border-radius: 999px; white-space: nowrap;">DOCS</a>
+  </header>
+
+  <section class="hero-section" style="position: relative; max-width: 1120px; margin: 0 auto; padding-top: 40px; padding-bottom: 96px;">
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 28px; animation: fadeUp 0.7s ease both;">FLOWLENS · A JIRA DASHBOARD GADGET</p>
+    <h1 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(40px, 7.2vw, 92px); line-height: 1.04; letter-spacing: -0.015em; margin: 0; max-width: 14ch; text-wrap: balance; animation: fadeUp 0.7s ease 0.08s both;">See where the time goes.</h1>
+    <p style="font-size: 19px; line-height: 1.65; color: rgba(237,230,218,0.62); max-width: 52ch; margin: 36px 0 0; animation: fadeUp 0.7s ease 0.16s both;">FlowLens shows how long issues really sit in each status — averages, per-issue breakdowns, and cycle-time trends, right on your Jira dashboard. Business-hours accurate. Private by design.</p>
+    <div class="hero-cta-row" style="display: flex; gap: 16px; margin-top: 44px; align-items: center; animation: fadeUp 0.7s ease 0.24s both;">
+      <span class="hero-cta" style="border: 1px dashed rgba(200,164,107,0.5); color: #C8A46B; font-weight: 500; font-size: 15px; padding: 14px 28px; border-radius: 999px;">Coming soon to the Atlassian Marketplace</span>
+      <a href="/flowlens/docs/" class="quiet-link" style="color: rgba(237,230,218,0.7); font-size: 15px; text-decoration: none; padding: 14px 20px;">Read the docs →</a>
+    </div>
+  </section>
+
+  <section class="feature-section" style="position: relative; max-width: 1120px; margin: 0 auto; padding-top: 0; padding-bottom: 96px;">
+    <div class="feature-grid">
+      <div style="background: #0E0C09; padding: 40px 32px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4);">01</span>
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 28px; margin: 18px 0 12px;">Find your bottleneck</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(237,230,218,0.55);">Average, median, and 85th-percentile time for every status over any window from 7 to 365 days — plus a per-issue breakdown and weekly cycle-time trend. The slow column is where your cycle time is hiding.</p>
+      </div>
+      <div style="background: #0E0C09; padding: 40px 32px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4);">02</span>
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 28px; margin: 18px 0 12px;">Business hours, not wall clock</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(237,230,218,0.55);">A ticket that sat over the weekend didn't sit for 64 hours. One toggle measures Mon–Fri working hours in your timezone — daylight saving handled — so numbers match how your team actually works.</p>
+      </div>
+      <div style="background: #0E0C09; padding: 40px 32px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4);">03</span>
+        <h3 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 28px; margin: 18px 0 12px;">Your data stays home</h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(237,230,218,0.55);">Built on Atlassian Forge with zero external services — Runs on Atlassian. No data ever leaves your Atlassian cloud, nothing to security-review, read-only access to your work items. <a href="/flowlens/privacy/" class="quiet-link" style="color: #C8A46B; text-decoration: none;">Privacy policy →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="position: relative; border-top: 1px solid rgba(237,230,218,0.10);">
+    <div class="footer-inner" style="max-width: 1120px; margin: 0 auto; padding-top: 64px; padding-bottom: 48px; display: flex; flex-direction: column; gap: 48px;">
+      <div>
+        <h2 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(28px, 4vw, 44px); margin: 0 0 20px; letter-spacing: -0.01em;">Questions? Ideas<span style="color: #C8A46B;">?</span></h2>
+        <a href="mailto:hello@arrakislabsinc.com" class="contact-link" style="font-size: 19px; color: #C8A46B; text-decoration: none; border-bottom: 1px solid rgba(200,164,107,0.4); padding-bottom: 3px;">hello@arrakislabsinc.com</a>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid rgba(237,230,218,0.10); padding-top: 28px; flex-wrap: wrap; gap: 12px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4); letter-spacing: 0.1em;">© 2026 ARRAKIS LABS INC</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em;"><a href="/flowlens/privacy/" class="quiet-link" style="color: rgba(237,230,218,0.4); text-decoration: none;">PRIVACY</a> · <a href="/flowlens/docs/" class="quiet-link" style="color: rgba(237,230,218,0.4); text-decoration: none;">DOCS</a></span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
