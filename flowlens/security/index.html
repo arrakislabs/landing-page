@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowLens Security | Arrakis Labs</title>
+<meta name="description" content="FlowLens security architecture: zero egress, no external servers, read-only access, no personal data collected. Built to qualify for Atlassian's Runs on Atlassian program.">
+<meta name="theme-color" content="#0E0C09">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0E0C09; }
+  * { box-sizing: border-box; }
+  ::selection { background: #C8A46B; color: #0E0C09; }
+  a { transition: all 0.2s ease; }
+  a.nav-cta:hover { border-color: #C8A46B; color: #C8A46B; }
+  .page-pad { padding-left: 40px; padding-right: 40px; }
+  @media (max-width: 700px) { .page-pad { padding-left: 24px; padding-right: 24px; } }
+  .prose h2 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 26px; margin: 44px 0 12px; }
+  .prose p, .prose li { font-size: 16px; line-height: 1.75; color: rgba(237,230,218,0.65); }
+  .prose strong { color: #EDE6DA; }
+  .prose ul { list-style: none; margin: 20px 0 0; padding-left: 0; }
+  .prose ul li { position: relative; padding-left: 28px; margin-bottom: 14px; }
+  .prose ul li::before { content: "—"; position: absolute; left: 0; color: #C8A46B; }
+  .prose code { font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #C8A46B; background: rgba(200,164,107,0.10); padding: 2px 7px; border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(237,230,218,0.10); font-size: 15px; color: rgba(237,230,218,0.65); }
+  th { color: #EDE6DA; font-weight: 600; }
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #0E0C09; color: #EDE6DA; font-family: 'Instrument Sans', sans-serif; -webkit-font-smoothing: antialiased;">
+
+  <header class="page-pad" style="display: flex; align-items: center; justify-content: space-between; max-width: 780px; margin: 0 auto; padding-top: 32px;">
+    <a href="/" style="display: flex; align-items: baseline; gap: 10px; text-decoration: none; color: #EDE6DA;">
+      <span style="font-family: 'Instrument Serif', serif; font-size: 22px;">Arrakis Labs</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C8A46B; letter-spacing: 0.14em;">INC</span>
+    </a>
+    <a href="/flowlens/" class="nav-cta" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #EDE6DA; text-decoration: none; border: 1px solid rgba(237,230,218,0.22); padding: 10px 18px; border-radius: 999px;">FLOWLENS</a>
+  </header>
+
+  <main class="page-pad prose" style="max-width: 780px; margin: 0 auto; padding-top: 56px; padding-bottom: 96px;">
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; color: #C8A46B; margin: 0 0 20px;">FLOWLENS · SECURITY</p>
+    <h1 style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; margin: 0 0 8px;">Nothing to secure but the obvious.</h1>
+    <p style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(237,230,218,0.4); letter-spacing: 0.1em;">LAST REVIEWED 2026-07-07</p>
+
+    <h2>Architecture</h2>
+    <p>FlowLens is built entirely on Atlassian's Forge platform and qualifies for <strong>Runs on Atlassian</strong>. That means:</p>
+    <ul>
+      <li><strong>Zero egress.</strong> FlowLens makes no network calls outside Atlassian's infrastructure — no external servers, no third-party APIs, no CDNs, no analytics or telemetry of ours anywhere in the app.</li>
+      <li><strong>All storage stays inside Atlassian.</strong> The data FlowLens keeps — issue IDs and keys, project IDs, status IDs and names, issue type IDs, and status-transition timestamps — lives in Forge-hosted storage, in your Atlassian environment, under Atlassian's own security and data-residency practices.</li>
+      <li><strong>Read-only by design.</strong> FlowLens holds a single Jira scope, <code>read:jira-work</code>, plus app storage. It cannot create, edit, or delete anything in your Jira instance.</li>
+      <li><strong>No credentials, ever.</strong> FlowLens authenticates via Forge's native OAuth mechanism. It never asks a user for a password, API token, or Personal Access Token.</li>
+    </ul>
+
+    <h2>What FlowLens does not do</h2>
+    <ul>
+      <li>No personal data collection — no names, emails, account IDs, or user identifiers of any kind</li>
+      <li>No reading of issue descriptions, comments, attachments, or user profiles</li>
+      <li>No logging of End-User Data — verified in the app's source, not just asserted</li>
+      <li>No remote APIs exposed for third-party integration</li>
+      <li>No sharing of any data, logs included, with any third party</li>
+    </ul>
+
+    <h2>Compliance status</h2>
+    <p>FlowLens is a new listing from a small, engineer-founded vendor. We do not yet hold formal certifications (SOC 2, ISO 27001) or a completed CAIQ Lite questionnaire. What we can offer instead is an architecture with a structurally small attack surface: there is no external server to breach, no database of ours to leak, and no credential of yours we ever hold.</p>
+
+    <h2>Reporting a security issue</h2>
+    <p>Email <a href="mailto:hello@arrakislabsinc.com" style="color: #C8A46B; text-decoration: none;">hello@arrakislabsinc.com</a> with details. We treat security reports as our highest priority and will acknowledge within one business day — see our <a href="/flowlens/support/" style="color: #C8A46B; text-decoration: none;">support commitment</a> for our standard hours.</p>
+
+    <h2>Related</h2>
+    <p><a href="/flowlens/privacy/" style="color: #C8A46B; text-decoration: none;">Privacy policy</a> · <a href="/flowlens/docs/" style="color: #C8A46B; text-decoration: none;">Documentation</a> · <a href="/flowlens/support/" style="color: #C8A46B; text-decoration: none;">Support</a></p>
+  </main>
+
+</div>
+</body>
+</html>
